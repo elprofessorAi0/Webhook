@@ -27,7 +27,7 @@ def handle_Message(senderPsid, receivedMessage):
 
 # Send Message
 def send_message(self, senderPsid, response):
-        id = 111261648227747
+        id = "Your Id"
         # url = f"https://graph.facebook.com/v10.0/me/messages?access_token={PAGE_ACCESS_TOKEN}"
         url = f"https://graph.facebook.com/v10.0/{id}/subscribed_apps"
         PAGE_ACCESS_TOKEN = VERIFY_TOKEN
@@ -59,7 +59,6 @@ def index():
 
     """ Get request """
 
-    # VERIFY_TOKEN = "aK3jdN3a-2Dah-M3ka-Ka2MLOpasdQr"
     if request.method == "GET":
         
         if 'hub.mode' in request.args:
@@ -83,7 +82,6 @@ def index():
 
     """ Post request """
     if request.method == "POST":
-        # VERIFY_TOKEN = "aK3jdN3a-2Dah-M3ka-Ka2MLOpasdQr"
         if 'hub.mode' in request.args:
             mode = request.args.get('hub.mode')
             # print(mode)
@@ -109,9 +107,9 @@ def index():
                 return "ERROR", 403
 
         return request.data, 200
-
-    # Data From Server
-
+    
+    # Respose From Server.
+    """ If You Send Messange or Reseve Message """
     data = request.data
     if data == "" or data == None:
         return "No Data Found"
@@ -138,6 +136,7 @@ def index():
 # Flask End  
 if __name__ == '__main__':
     try:
+        #app.run(debug = True) 
         app.run(host = 'localhost', port = '5000', debug = True)    
     except Exception as e:
         print(f"Error is {e}")
