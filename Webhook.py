@@ -54,7 +54,7 @@ def home():
         html = Html_Code.read()
     return html, 404
     
-@app.route('/Messanger/webhook', methods = ["GET", "POST"])
+@app.route('/webhook', methods = ["GET", "POST"])
 def index():
 
     """ Get request """
